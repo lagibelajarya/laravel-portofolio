@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: "Roboto", sans-serif;
+}
+
+html {
+    font-size: 10px;
+}
+body {
+}
+.global-container {
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: center;
+    // align-items: center;
+  
+}
+
+//variable js
+.shadow {
+    border-bottom: solid 1px rgba(#000, 0.1);
+}

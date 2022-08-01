@@ -1,0 +1,44 @@
+.sidebar {
+    position: sticky;
+    top: 0;
+    height: 5rem;
+    width: 100%;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    backdrop-filter: blur(16px);
+    padding: 0 10rem;
+    &__logo {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        &-img {
+            width: 3rem;
+            height: 3rem;
+        }
+        &-text {
+            font-size: 2.4rem;
+            font-weight: 600;
+        }
+    }
+    &__list {
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        flex: 1;
+        gap: 3rem;
+
+        &--link {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #2c2c22;
+            font-family: "Inter", sans-serif;
+            text-decoration: underline;
+
+            & a:link {
+                color: #2c2c22;
+            }
+        }
+    }
+}
