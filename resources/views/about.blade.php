@@ -26,14 +26,14 @@
             <p class="about__right--title">What do I help?</p>
             <div class="about__right--desc">
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing <br>
                     Possimus deserunt explicabo inventore fugit doloremque autem. <br>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. <br>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing <br>
                     Eum sit delectus esse eaque harum laboriosam.
                 </p>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus deserunt
-                    explicabo inventore fugit doloremque autem
+                    Lorem ipsum dolor sit amet, consectetur adipisicing <br>
+                    Possimus deserunt explicabo inventore fugit doloremque autem
                 </p>
             </div>
             <div class="about__right--rating">
@@ -155,12 +155,23 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
     <script>
         var swiper = new Swiper(".mySwiper", {
-            slidesPerView: 3,
+            slidesPerView: 1,
             spaceBetween: 30,
-            slidesPerGroup: 3,
+            slidesPerGroup: 1,
             loop: true,
             loopFillGroupWithBlank: true,
-
+            breakpoints: {
+                768: {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                    slidesPerGroup: 3,
+                },
+                500: {
+                    slidesPerView: 2,
+                    spaceBetween: 50,
+                    slidesPerGroup: 2,
+                }
+            },
             navigation: {
                 nextEl: ".swiper-button-next",
                 prevEl: ".swiper-button-prev",

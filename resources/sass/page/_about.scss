@@ -2,15 +2,25 @@
     display: flex;
     align-self: stretch;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
     margin: 5rem 10rem;
     gap: 10rem;
 
+    @include respond(bp-1100) {
+        flex-direction: column-reverse;
+    }
+
+    @include respond(bp-768) {
+        margin: 5rem;
+    }
+    @include respond(bp-500) {
+        margin: 5rem 1.5rem;
+    }
     &__left {
         display: flex;
         flex-direction: column;
         gap: 2rem;
-        width: 30%;
+
         &--box {
             padding: 2rem 2.4rem;
             border: solid 1px #d9d9d9;
@@ -19,6 +29,7 @@
             justify-content: start;
             gap: 2rem;
             align-items: center;
+            width: 38rem;
 
             &__icon {
                 padding: 2rem;
@@ -53,11 +64,11 @@
         }
     }
     &__right {
-        width: 50%;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         color: #2c2c2c;
+        gap: 1rem;
         &--title {
             font-weight: 800;
             font-size: 4.8rem;
@@ -160,6 +171,9 @@
         }
 
         .swiper-slide {
+            cursor: grabbing;
+            cursor: -webkit-grabbing;
+
             border-radius: 3rem;
             height: min-content;
             text-align: center;

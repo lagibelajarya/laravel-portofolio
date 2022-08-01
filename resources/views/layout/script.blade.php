@@ -9,4 +9,11 @@
             $(".sidebar").removeClass("shadow");
         }
     });
+
+    $('#nav-btn-show').on('click' , function(){
+        $('.navbar').addClass('show-navbar')
+    })
+    $('#nav-btn-hide').on('click' , function(){
+        $('.navbar').removeClass('show-navbar')
+    })
 </script>

@@ -9,10 +9,20 @@
     justify-content: end;
     backdrop-filter: blur(16px);
     padding: 0 10rem;
+
+    @include respond(bp-768) {
+        padding: 0 5rem;
+    }
+    @include respond(bp-500) {
+        padding: 0 1.5rem;
+    }
     &__logo {
         display: flex;
         align-items: center;
         gap: 1rem;
+        @include respond(bp-500) {
+            flex: 1;
+        }
         &-img {
             width: 3rem;
             height: 3rem;
@@ -29,6 +39,10 @@
         flex: 1;
         gap: 3rem;
 
+        @include respond(bp-500) {
+            display: none;
+        }
+
         &--link {
             font-size: 2rem;
             font-weight: 600;
@@ -41,4 +55,74 @@
             }
         }
     }
+    &__btn {
+        display: none;
+        font-size: 4rem;
+        color: #2c2c22;
+        @include respond(bp-500) {
+            display: block;
+        }
+    }
+}
+
+.navbar {
+    transition: all.3s;
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #2c2c22;
+    color: #fff;
+    display: none;
+    flex-direction: column;
+    transform: translate(0, -200%);
+    @include respond(bp-500) {
+        display: flex;
+    }
+
+    &-text {
+    }
+
+    &__info {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 2rem;
+
+        &--img {
+            width: 3rem;
+            height: 3rem;
+        }
+        &--title {
+            font-size: 2.4rem;
+            font-weight: 600;
+        }
+        &--btn {
+            flex: 1;
+            display: flex;
+            justify-content: end;
+            font-size: 3rem;
+            ion-icon {
+            }
+        }
+    }
+    &__list {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        padding: 0 2rem 2rem 2rem;
+
+        &--link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #fff;
+            font-size: 2rem;
+            font-weight: 300;
+        }
+    }
+}
+
+.show-navbar {
+    transform: translate(0);
 }

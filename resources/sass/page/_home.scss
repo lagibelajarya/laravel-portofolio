@@ -2,26 +2,53 @@
     display: flex;
     align-items: center;
     gap: 10rem;
-
     padding: 5rem 10rem;
     justify-content: space-between;
     width: 100%;
     min-height: 100vh;
-    height: 100%;
+
+    @include respond(bp-1100) {
+        flex-direction: column;
+    }
+    @include respond(bp-768) {
+        padding: 5rem;
+    }
+    @include respond(bp-500) {
+        padding: 5rem 1.5rem;
+    }
     &__hero {
         &--title {
-            font-size: 8rem;
-            font-weight: 900;
-
+            display: flex;
+            flex-direction: column;
+            @include respond(bp-1100) {
+                align-items: center;
+                white-space: nowrap;
+                br {
+                    display: none;
+                }
+            }
             &-text {
                 line-height: 1;
+
                 &:first-child {
-                    img {
-                        height: 6rem;
+                    margin-bottom: 1rem;
+                    font-weight: 500;
+                    font-size: 3.2rem;
+                    text-decoration: underline;
+
+                    @include respond(bp-500) {
+                        font-size: 2.4rem;
                     }
                 }
                 &:last-child {
-                    white-space: nowrap;
+                    font-size: 10rem;
+                    font-weight: 900;
+                    @include respond(bp-768) {
+                        font-size: 7rem;
+                    }
+                    @include respond(bp-500) {
+                        font-size: 5rem;
+                    }
                 }
             }
         }
@@ -33,6 +60,13 @@
                 font-size: 2rem;
                 font-weight: 400;
                 line-height: 1.5;
+
+                @include respond(bp-1100) {
+                    text-align: center;
+                }
+                @include respond(bp-500) {
+                    font-size: 1.6rem;
+                }
             }
         }
 
@@ -41,7 +75,11 @@
             justify-content: start;
             gap: 2rem;
             align-items: center;
-            margin-top: 10rem;
+            margin-top: 5rem;
+
+            @include respond(bp-1100) {
+                justify-content: center;
+            }
             button {
                 padding: 1.2rem 2rem;
                 font-size: 2rem;
@@ -62,8 +100,12 @@
             }
         }
     }
-    &__rigth {
+    &__right {
+        @include respond(bp-500) {
+            padding: 2rem;
+        }
         &--img {
+            width: 100%;
         }
     }
 }

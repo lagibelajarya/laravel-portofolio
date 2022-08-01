@@ -11,37 +11,74 @@
         </div>
         <div class="gallery__box">
             <div class="gallery__box--item ">
-                <img src={{ asset('./img/img5.jpg') }} alt="" class="gallery__box--item-img">
+                <div class="gallery__box--item__img">
+                    <img src={{ asset('./img/img5.jpg') }}>
+                    <div class="gallery__box--item__img--text">
+                        <p>Title Project</p>
+                    </div>
+                </div>
             </div>
             <div class="gallery__box--item">
-                <img src={{ asset('./img/img1.jpg') }} alt="" class="gallery__box--item-img">
+                <div class="gallery__box--item__img">
+                    <img src={{ asset('./img/img1.jpg') }}>
+                    <div class="gallery__box--item__img--text">
+                        <p>Title Project</p>
+                    </div>
+                </div>
             </div>
             <div class="gallery__box--item">
-                <img src={{ asset('./img/img2.jpg') }} alt="" class="gallery__box--item-img">
+                <div class="gallery__box--item__img">
+                    <img src={{ asset('./img/img2.jpg') }}>
+                    <div class="gallery__box--item__img--text">
+                        <p>Title Project</p>
+                    </div>
+                </div>
             </div>
             <div class="gallery__box--item">
-                <img src={{ asset('./img/img3.jpg') }} alt="" class="gallery__box--item-img">
+                <div class="gallery__box--item__img">
+                    <img src={{ asset('./img/img4.jpg') }}>
+                    <div class="gallery__box--item__img--text">
+                        <p>Title Project</p>
+                    </div>
+                </div>
             </div>
             <div class="gallery__box--item">
-                <img src={{ asset('./img/img4.jpg') }} alt="" class="gallery__box--item-img">
+                <div class="gallery__box--item__img">
+                    <img src={{ asset('./img/img4.jpg') }}>
+                    <div class="gallery__box--item__img--text">
+                        <p>Title Project</p>
+                    </div>
+                </div>
             </div>
             <div class="gallery__box--item">
-                <img src={{ asset('./img/img5.jpg') }} alt="" class="gallery__box--item-img">
+                <div class="gallery__box--item__img">
+                    <img src={{ asset('./img/img2.jpg') }}>
+                    <div class="gallery__box--item__img--text">
+                        <p>Title Project</p>
+                    </div>
+                </div>
             </div>
             <div class="gallery__box--item">
-                <img src={{ asset('./img/img3.jpg') }} alt="" class="gallery__box--item-img">
+                <div class="gallery__box--item__img">
+                    <img src={{ asset('./img/img3.jpg') }}>
+                    <div class="gallery__box--item__img--text">
+                        <p>Title Project</p>
+                    </div>
+                </div>
             </div>
             <div class="gallery__box--item">
-                <img src={{ asset('./img/img1.jpg') }} alt="" class="gallery__box--item-img">
+                <div class="gallery__box--item__img">
+                    <img src={{ asset('./img/img5.jpg') }}>
+                    <div class="gallery__box--item__img--text">
+                        <p>Title Project</p>
+                    </div>
+                </div>
             </div>
-
         </div>
-     
     </div>
     @include('layout/footer')
 @endsection
 @section('js')
-   
     <script>
         let item = '.gallery__box--item';
         $(window).on('click', '.gallery__box--item', function(e) {
@@ -53,6 +90,9 @@
             }
         })
 
-        
+
+        $(document).on('click', '.gallery__box--item', function() {
+            $(this).siblings('.gallery__box--item__img--text').addClass('opacity')
+        })
     </script>
 @endsection

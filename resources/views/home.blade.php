@@ -4,16 +4,12 @@
     <div class="home">
         <div class="home__hero">
             <div class="home__hero--title">
-                <p class="home__hero--title-text">HI <img src={{ asset('./img/emoji.svg') }} alt=""></p>
-                <p class="home__hero--title-text">I'm Rifaldi</p>
-                <p class="home__hero--title-text">Frontend Developer</p>
+                <p class="home__hero--title-text">I'm Rifaldi <span>|</span> Frontend</p>
+                <p class="home__hero--title-text">Web <br> Developer</p>
             </div>
             <div class="home__hero--desc">
                 <p class="home__hero--desc-text">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. <br>
-                    Commodi laudantium debitis voluptas tenetur aliquid. Inventore. <br>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. <br>
-                    Ab, nisi labore. Officiis accusantium ducimus atque.</p>
+                    This is a template Figma file, turned into code <br> using Anima. Learn more at AnimaApp.com
             </div>
             <div class="home__hero--btn">
                 <button class="home__hero--btn-1">HIRE ME</button>
