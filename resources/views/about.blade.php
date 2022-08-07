@@ -1,5 +1,5 @@
 @extends('index')
-@include('layout/sidebar')
+
 @section('content')
     <div class="about">
         <div class="about__left">

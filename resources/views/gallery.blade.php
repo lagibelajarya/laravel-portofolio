@@ -1,5 +1,5 @@
 @extends('index')
-@include('layout/sidebar')
+
 @section('content')
     <div class="gallery">
         <div class="gallery__title">

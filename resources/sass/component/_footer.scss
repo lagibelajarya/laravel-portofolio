@@ -77,7 +77,12 @@
             row-gap: 1.2rem;
             column-gap: 10rem;
             width: 100%;
+            justify-content: end;
+            align-content: center;
 
+            @include respond(bp-1100) {
+                justify-content: start;
+            }
             @include respond(bp-650) {
                 column-gap: 5rem;
             }
@@ -99,14 +104,19 @@
         align-self: stretch;
         display: flex;
         justify-content: space-between;
+        align-items: center;
         @include respond(bp-650) {
             flex-direction: column;
+            align-items: flex-start;
             gap: 2rem;
         }
         &--socmed {
             display: flex;
             gap: 1.4rem;
             &-box {
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 cursor: pointer;
                 border: none;
                 outline: none;

@@ -53,17 +53,21 @@
         <div class="footer__bottom">
 
             <div class="footer__bottom--socmed">
-                <button class="footer__bottom--socmed-box">
+                <button onclick="window.open('https://www.facebook.com/ggwprivals')" class="footer__bottom--socmed-box">
                     <ion-icon name="logo-facebook"></ion-icon>
                 </button>
-                <button class="footer__bottom--socmed-box">
+                <button onclick="window.open('https://www.instagram.com/rrrival_/')" class="footer__bottom--socmed-box">
                     <ion-icon name="logo-instagram"></ion-icon>
                 </button>
-                <button class="footer__bottom--socmed-box">
+                <button onclick="window.open('https://twitter.com/rival_io')" class="footer__bottom--socmed-box">
                     <ion-icon name="logo-twitter"></ion-icon>
                 </button>
-                <button class="footer__bottom--socmed-box">
+                <button onclick="window.open('https://www.youtube.com/channel/UCBZmo6oSnjNBWbaYBPOuATg')"
+                    class="footer__bottom--socmed-box">
                     <ion-icon name="logo-youtube"></ion-icon>
+                </button>
+                <button onclick="window.open('https://github.com/rifaldimuhammad')" class="footer__bottom--socmed-box">
+                    <ion-icon name="logo-github"></ion-icon>
                 </button>
             </div>
 

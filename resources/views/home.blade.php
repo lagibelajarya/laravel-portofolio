@@ -1,5 +1,4 @@
 @extends('index')
-@include('layout/sidebar')
 @section('content')
     <div class="home">
         <div class="home__hero">
@@ -12,8 +11,9 @@
                     This is a template Figma file, turned into code <br> using Anima. Learn more at AnimaApp.com
             </div>
             <div class="home__hero--btn">
-                <button class="home__hero--btn-1">HIRE ME</button>
-                <button class="home__hero--btn-2" onclick="document.location='/gallery'">SEE MY PROJECTS</button>
+                <button class="home__hero--btn-1" onclick="document.location='{{ route('contact') }}'">HIRE ME</button>
+                <button class="home__hero--btn-2" onclick="document.location='{{ route('gallery') }}'">SEE MY
+                    PROJECTS</button>
             </div>
         </div>
         <div class="home__right">
