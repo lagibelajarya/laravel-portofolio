@@ -22,4 +22,6 @@ Route::get('/', [homeController::class, 'index'])->name('home');
 Route::get('/about', [aboutController::class, 'index'])->name('about');
 Route::get('/gallery', [galleryController::class, 'index'])->name('gallery');
 Route::get('/contact', [contactController::class, 'index'])->name('contact');
-Route::post('/submit', [contactController::class, 'store'])->name('submit');
+Route::post('/contact/submit', [contactController::class, 'store'])->name('contact/submit');
+Route::get('/contact/delete/{id}', [contactController::class, 'delete'])->name('contact/delete');
+Route::post('/contact/edit', [contactController::class, 'edit'])->name('contact/edit');

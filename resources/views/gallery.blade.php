@@ -7,7 +7,8 @@
                 <p>My Latest Works</p>
                 <p>Perfect Solution for digital experience</p>
             </div>
-            <a href="#" class="gallery__title--more">Explore More Works</a>
+            <a href="#" class="gallery__title--more">Explore More Works <ion-icon name="chevron-up-circle-outline">
+                </ion-icon></a>
         </div>
         <div class="gallery__box">
             <div class="gallery__box--item ">

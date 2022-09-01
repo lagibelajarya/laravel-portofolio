@@ -22,6 +22,7 @@
         gap: 2rem;
 
         &--box {
+            background-color: #fff;
             padding: 2rem 2.4rem;
             border: solid 1px #d9d9d9;
             border-radius: 1rem;
@@ -98,12 +99,50 @@
     &__project {
         padding: 5rem 0;
         height: min-content;
-        &--title {
-            font-size: 3.2rem;
-            font-weight: 600;
-            text-align: center;
-            text-decoration: underline;
+        &__title {
+            margin: 0 10rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            align-self: stretch;
+
+            @include respond(bp-768) {
+                margin: 0 5rem;
+            }
+            @include respond(bp-650) {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 2rem;
+            }
+            &--box {
+                p:first-child {
+                    font-weight: 800;
+                    font-size: 4.8rem;
+                    color: #2c2c2c;
+                    margin-bottom: 1rem;
+                    text-decoration: underline;
+                }
+                p:last-child {
+                    font-size: 1.6rem;
+                }
+            }
+
+            &--more {
+                color: #f26440;
+                font-size: 1.6rem;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                padding: 1rem 2rem;
+                border: solid 1px #f26440;
+                border-radius: 5px;
+                ion-icon {
+                    font-size: 2rem;
+                }
+            }
         }
+
         &--item {
             position: relative;
             padding: 2rem;
@@ -191,6 +230,7 @@
             -ms-flex-align: center;
             -webkit-align-items: center;
             align-items: center;
+            border-radius: 1rem;
         }
 
         .swiper-slide img {

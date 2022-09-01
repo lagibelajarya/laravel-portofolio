@@ -49,7 +49,15 @@
         </div>
     </div>
     <div class="about__project">
-        <p class="about__project--title">My Skill</p>
+        <div class="about__project__title">
+            <div class="about__project__title--box">
+                <p>My Skills</p>
+                <p>Perfect Solution for digital experience</p>
+            </div>
+            <a href="#" class="about__project__title--more">Explore More Skills <ion-icon
+                    name="chevron-up-circle-outline">
+                </ion-icon></a>
+        </div>
         <div class="swiper mySwiper">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">

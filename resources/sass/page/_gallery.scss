@@ -33,6 +33,16 @@
         &--more {
             color: #f26440;
             font-size: 1.6rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 1rem 2rem;
+            border: solid 1px #f26440;
+            border-radius: 5px;
+            ion-icon {
+                font-size: 2rem;
+            }
         }
     }
 

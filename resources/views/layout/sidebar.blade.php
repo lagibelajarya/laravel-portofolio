@@ -4,10 +4,10 @@
         <p class="sidebar__logo-text">Portofolio</p>
     </div>
     <div class="sidebar__list">
-        <a href={{ route('home') }} class="sidebar__list--link">Home</a>
-        <a href={{ route('about') }} class="sidebar__list--link">About</a>
-        <a href={{ route('gallery') }} class="sidebar__list--link">Gallery</a>
-        <a href={{ route('contact') }} class="sidebar__list--link">Contact</a>
+        <a href={{ route('home') }} class="sidebar__list--link home-link">Home</a>
+        <a href={{ route('about') }} class="sidebar__list--link about-link">About</a>
+        <a href={{ route('gallery') }} class="sidebar__list--link gallery-link">Gallery</a>
+        <a href={{ route('contact') }} class="sidebar__list--link contact-link">Contact</a>
     </div>
     <div class="sidebar__btn">
         <ion-icon id="nav-btn-show" name="menu-outline"></ion-icon>

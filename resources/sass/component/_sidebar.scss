@@ -49,7 +49,6 @@
             font-weight: 600;
             color: #2c2c22;
             font-family: "Inter", sans-serif;
-            text-decoration: underline;
 
             & a:link {
                 color: #2c2c22;
@@ -147,4 +146,10 @@
 
 .show-navbar {
     transform: translate(0);
+}
+.active-link {
+    background: #2c2c2c;
+    padding: 0.5rem 1.4rem;
+    color: #fff;
+    border-radius: 5px;
 }

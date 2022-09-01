@@ -1,4 +1,5 @@
 .contact {
+    position: relative;
     &-wrapper {
         display: flex;
         align-items: center;
@@ -9,12 +10,132 @@
             align-items: center;
         }
     }
+
+    &__table {
+        width: 100%;
+        position: fixed;
+        top: 0;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        z-index: 3;
+        transition: all 0.1s cubic-bezier(0.48, 0.24, 0.65, 0.59);
+        background: rgba(36, 39, 48, 0.5);
+        opacity: 0;
+        visibility: hidden;
+
+        &-box {
+            padding: 3rem;
+            background-color: #fff;
+            border-radius: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            width: 90%;
+            height: 50rem;
+            min-height: 30rem;
+
+            &--title {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                p {
+                    color: #2c2c2c;
+                    font-size: 3rem;
+                    font-weight: 600;
+                }
+                ion-icon {
+                    font-size: 3rem;
+                    color: #2c2c2c;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        &-wrapper {
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            padding: 2rem;
+            border: solid 1px rgba(rgb(228, 228, 228), $alpha: 1);
+            border-radius: 1rem;
+            &-header {
+                display: grid;
+                grid-template-columns: repeat(4, calc(100% / 4));
+                font-size: 1.6rem;
+                background-color: #e5f1ff;
+                &--item {
+                    text-align: center;
+                    padding: 1.2rem 2rem;
+                }
+            }
+
+            &-container-body {
+                overflow: auto;
+            }
+            &-body {
+                display: grid;
+                grid-template-columns: repeat(4, calc(100% / 4));
+                font-size: 1.6rem;
+                border-bottom: solid 1px rgba(rgb(228, 228, 228), $alpha: 1);
+                &--item {
+                    text-align: center;
+                    // word-break: break-all;
+                    padding: 1.2rem 2rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    &:last-child {
+                        border-bottom: none;
+                    }
+                }
+
+                &--action {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 1rem;
+                    padding: 1.2rem 2rem;
+
+                    a {
+                        background: none;
+                        border-radius: 5px;
+                        padding: 5px 1rem;
+                        font-size: 1.2rem;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        cursor: pointer;
+                    }
+                    ion-icon {
+                        font-size: 1.6rem;
+                    }
+                    &-trash {
+                        border: solid 1px #dc3545;
+                        color: #dc3545;
+                    }
+                    &-edit {
+                        border: solid 1px #286f6c;
+                        color: #286f6c;
+                    }
+                }
+            }
+        }
+    }
+
     &__form {
-        padding: 5rem 10rem;
-        width: 50%;
         display: flex;
         flex-direction: column;
         gap: 2rem;
+        margin: 0 10rem;
+        padding: 3rem;
+        width: 100%;
+        background-color: #fff;
+        border-radius: 1rem;
+        box-shadow: 2px 3px 8rem rgba($color: #000000, $alpha: 0.1);
 
         @include respond(bp-1100) {
             width: 100%;
@@ -63,13 +184,21 @@
             textarea {
                 border-radius: 5px;
                 width: 100%;
-                font-size: 2rem;
+                font-size: 1.6rem;
                 padding: 0 2rem;
-                background-color: #fff;
                 color: #2c2c2c;
-                border: solid 2px #2c2c2c;
+                border: none;
+                background-color: rgba(#f5f5f5, 0.7);
+                transition: all 0.3s;
+                &:focus {
+                    outline: none;
+                    border-bottom: solid 3px #286f6c;
+                }
+                &:focus:invalid {
+                    border-bottom: solid 3px #dc3545;
+                }
                 &::placeholder {
-                    color: #2c2c2c87;
+                    color: rgba($color: #2c2c2c, $alpha: 0.5);
                 }
             }
             textarea {
@@ -94,11 +223,12 @@
         }
     }
     &__map {
-        width: 50%;
         position: relative;
         z-index: 0;
         min-height: 74.72rem;
         height: 100%;
+        width: 50%;
+        min-width: 50%;
 
         @include respond(bp-1100) {
             width: 100%;
@@ -146,8 +276,115 @@
             }
         }
     }
-}
 
+    &-edit {
+        width: 100%;
+        position: fixed;
+        top: 0;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        z-index: 3;
+        transition: all 0.1s cubic-bezier(0.48, 0.24, 0.65, 0.59);
+        background: rgba(36, 39, 48, 0.5);
+        backdrop-filter: blur(1.6rem);
+        opacity: 0;
+        visibility: hidden;
+
+        &__box {
+            border-radius: 1rem;
+            background: #fff;
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3rem;
+            width: 50%;
+            min-width: 50%;
+            &--header {
+                width: 100%;
+                font-size: 3rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                &__text {
+                    font-size: inherit;
+                    font-weight: 600;
+                }
+                &__close {
+                    display: flex;
+                    align-items: center;
+                    font-size: inherit;
+                    cursor: pointer;
+                }
+            }
+            &--wrapper {
+                border-radius: 1rem;
+                width: 100%;
+                height: 100%;
+                padding: 2rem;
+                border: solid 1px #e4e4e4;
+                display: flex;
+                flex-direction: column;
+                gap: 3rem;
+
+                &__form {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+                    gap: 2rem;
+                    width: 100%;
+                    &--input {
+                        width: 100%;
+                        input,
+                        textarea {
+                            border: none;
+                            outline: none;
+                            border-radius: 5px;
+                            width: 100%;
+                            background-color: rgba(245, 245, 245, 0.7);
+                            font-size: 1.6rem;
+                        }
+                        input {
+                            padding: 0 2rem;
+                            height: 5rem;
+                        }
+                        textarea {
+                            padding: 2rem;
+                            height: 20rem;
+                            resize: none;
+                        }
+                    }
+                }
+
+                &-btn {
+                    display: flex;
+                    justify-content: end;
+                    gap: 2rem;
+                    width: 100%;
+                    button {
+                        border-radius: 5px;
+                        padding: 1.2rem 2rem;
+                        font-size: 2rem;
+                        cursor: pointer;
+                        &:nth-child(1) {
+                            border: solid 1px #2c2c2c;
+                            background: #fff;
+                        }
+                        &:nth-child(2) {
+                            border: solid 1px transparent;
+                            background-color: #2c2c2c;
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
 #map {
     position: absolute;
     top: 0;
@@ -168,6 +405,106 @@
         font-size: 1.6rem;
     }
     &-input {
-        border: solid 2px #dc3545 !important;
+        outline: solid 3px #dc3545;
+    }
+}
+
+#btn {
+    &-show {
+        &-feedback {
+            color: #f26440;
+            font-size: 1.6rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 1rem 2rem;
+            border: solid 1px #f26440;
+            border-radius: 5px;
+            ion-icon {
+                font-size: 2rem;
+            }
+        }
+    }
+    &_hide {
+    }
+}
+
+.show {
+    opacity: 1;
+    visibility: visible;
+}
+.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.alert {
+    position: fixed;
+    top: 7rem;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    transition: all 0.5s;
+    &-success,
+    &-edit,
+    &-danger {
+        border-radius: 5px;
+        box-shadow: 0 0 2rem rgba($color: #000000, $alpha: 0.1);
+        padding: 1.2rem 2rem;
+        background: rgba($color: #0dcaf0, $alpha: 0.5);
+        border: solid 2px #0dcaf0;
+        display: flex;
+        align-items: center;
+        width: 80%;
+
+        ion-icon {
+            color: #055160;
+            font-size: 2.4rem;
+            color: #2c2c2c;
+        }
+        p {
+            color: #055160;
+            color: #2c2c2c;
+            display: flex;
+            align-items: center;
+            font-size: 1.6rem;
+            &:nth-child(1) {
+                margin-right: 1rem;
+            }
+            &:nth-child(2) {
+                font-weight: 800;
+                margin-right: 5px;
+            }
+            &:nth-child(3) {
+            }
+            &:nth-child(4) {
+                flex: 1;
+                justify-content: end;
+            }
+        }
+    }
+
+    &-danger {
+        background: rgba($color: #f03, $alpha: 0.5);
+        border: solid 2px #f03;
+        ion-icon {
+            color: #2c2c2c;
+        }
+        p {
+            color: #2c2c2c;
+        }
+    }
+    &-edit {
+        background: rgba($color: yellow, $alpha: 0.5);
+        border: solid 2px yellow;
+        ion-icon {
+            color: #2c2c2c;
+        }
+        p {
+            color: #2c2c2c;
+        }
     }
 }
