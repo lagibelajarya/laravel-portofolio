@@ -4,7 +4,7 @@ use App\Http\Controllers\aboutController;
 use App\Http\Controllers\contactController;
 use App\Http\Controllers\galleryController;
 use App\Http\Controllers\homeController;
-
+use App\Http\Controllers\userController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,7 +18,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [homeController::class, 'index'])->name('home');
+Route::get('/', [userController::class, 'index']);
+Route::post('/doLogin', [userController::class, 'doLogin'])->name('login');
+Route::get('/doLogout', [userController::class, 'doLogout'])->name('logout');
+// Route::get('/sample', [userController::class, 'sample']);
+
+
+Route::get('/home', [homeController::class, 'index'])->name('home');
 Route::get('/about', [aboutController::class, 'index'])->name('about');
 Route::get('/gallery', [galleryController::class, 'index'])->name('gallery');
 Route::get('/contact', [contactController::class, 'index'])->name('contact');

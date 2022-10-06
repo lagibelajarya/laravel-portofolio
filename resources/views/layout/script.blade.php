@@ -6,6 +6,47 @@
     crossorigin=""></script>
 <script type="text/javascript" src={{ asset('./datatables/js/datatables.min.js') }}></script>
 <script>
+    // var map = L.map('map', {
+    //     zoomControl: false
+    // }).setView([-7.752371, 112.696571], 13);
+
+    // var tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    //     minZoom: 10,
+    //     maxZoom: 17,
+    //     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    // }).addTo(map);
+
+    // var marker = L.marker([-7.752371, 112.696571]).addTo(map)
+    //     .bindPopup('<b>Hello Guys!</b><br />Ini Adalah Rumah Saya.').openPopup();
+
+    // var circle = L.circle([-7.752404, 112.696550], {
+    //     color: 'red',
+    //     fillColor: '#f03',
+    //     fillOpacity: 0.5,
+    //     radius: 500
+    // }).addTo(map).bindPopup('Area Rumah Saya.');
+
+    // function onMapClick(e) {
+    //     popup
+    //         .setLatLng(e.latlng)
+    //         .setContent('You clicked the map at ' + e.latlng.toString())
+    //         .openOn(map);
+    // }
+
+    // map.on('click', onMapClick);
+    $(document).ready(function() {
+        setTimeout(() => {
+            $('.loader').addClass('hide')
+        }, 2000);
+    })
+    $('#btn-hide-alert').on('click', function() {
+        $('.alert').addClass('hide')
+    })
+    setTimeout(() => {
+        $('.alert').addClass('hide')
+    }, 4000);
+
+
     $(window).scroll(function() {
         var scroll = $(window).scrollTop();
         if (scroll >= 30) {
@@ -35,7 +76,7 @@
 
         if (!$('.about-link , .gallery-link  , .contact-link').hasClass('active-link')) {
             $('.home-link').addClass('active-link')
-        } 
+        }
 
     });
 

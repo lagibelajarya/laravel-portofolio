@@ -8,6 +8,10 @@
         <a href={{ route('about') }} class="sidebar__list--link about-link">About</a>
         <a href={{ route('gallery') }} class="sidebar__list--link gallery-link">Gallery</a>
         <a href={{ route('contact') }} class="sidebar__list--link contact-link">Contact</a>
+        <a href={{ route('logout') }} class="sidebar__list--link contact-link  ">Logout
+            <ion-icon name="log-out-outline">
+            </ion-icon>
+        </a>
     </div>
     <div class="sidebar__btn">
         <ion-icon id="nav-btn-show" name="menu-outline"></ion-icon>
@@ -34,6 +38,9 @@
         </a>
         <a href={{ route('contact') }} class="navbar__list--link">
             <ion-icon name="mail-outline"></ion-icon>Contact
+        </a>
+        <a href={{ route('logout') }} class="navbar__list--link d-flex flex-a-center bg-brown ">
+            Logout<ion-icon name="log-out-outline"></ion-icon>
         </a>
     </div>
     <div class="navbar__btn">

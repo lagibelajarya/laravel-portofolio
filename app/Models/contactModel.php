@@ -16,5 +16,6 @@ class contactModel extends Model
         'name',
         'email',
         'message',
+        'image'
     ];
 }

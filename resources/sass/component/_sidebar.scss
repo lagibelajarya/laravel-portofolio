@@ -53,6 +53,23 @@
             & a:link {
                 color: #2c2c22;
             }
+
+            &:last-child {
+                background: #2c2c22;
+                color: white;
+                padding: 0.5rem 1.6rem;
+                gap: 5px;
+                border-radius: 5px;
+                display: flex;
+                align-items: center;
+                font-size: 1.4rem;
+                font-weight: 400;
+                ion-icon {
+                    font-size: 2rem;
+                    min-width: 2rem;
+                    min-height: 2rem;
+                }
+            }
         }
     }
     &__btn {

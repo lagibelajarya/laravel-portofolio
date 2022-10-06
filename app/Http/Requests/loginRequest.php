@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class contactEditRequest extends FormRequest
+class loginRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,19 +24,15 @@ class contactEditRequest extends FormRequest
     public function rules()
     {
         return [
-            "editName" => 'required|min:5|max:200',
-            "editEmail" => ['required', 'min:5'],
-            "editMessage" => 'required|max:200',
-            "editImage" => 'required'
+            'email' => 'required|min:5',
+            'password' => 'required|min:5'
         ];
     }
-
     public function messages()
     {
         return [
-            "required" => ":attribute wajib diisi ",
-            "min" => "isi :attribute minimal 5 ",
-            "max" => "isi :attribute diisi maksimal 200 karakter"
+            'required' => ':attribute Harus Diisi',
+            'min' => ':attribute di isi minimal 5 karakter'
         ];
     }
 }

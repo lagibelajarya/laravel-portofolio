@@ -31,7 +31,9 @@
             gap: 2rem;
             align-items: center;
             width: 38rem;
-
+            @include respond(bp-400) {
+                width: 100%;
+            }
             &__icon {
                 padding: 2rem;
                 border-radius: 100%;
@@ -73,11 +75,23 @@
         &--title {
             font-weight: 800;
             font-size: 4.8rem;
+
+            @include respond(bp-320) {
+                font-size: 3.2rem;
+            }
         }
         &--desc {
-            p {
+            ul {
                 font-size: 1.6rem;
                 line-height: 2;
+                list-style-type: decimal;
+
+                ::marker {
+                    font-size: 2rem;
+                    color: #f26440;
+                }
+                li {
+                }
             }
         }
         &--rating {
@@ -113,6 +127,10 @@
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 2rem;
+            }
+
+            @include respond(bp-320) {
+                margin: 0 2rem;
             }
             &--box {
                 p:first-child {
@@ -191,6 +209,10 @@
                     &::after {
                         color: #fff;
                     }
+
+                    @include respond(bp-500) {
+                        right: 1rem;
+                    }
                 }
                 &-prev {
                     height: 6rem;
@@ -201,6 +223,9 @@
 
                     &::after {
                         color: #fff;
+                    }
+                    @include respond(bp-500) {
+                        left: 1rem;
                     }
                 }
             }

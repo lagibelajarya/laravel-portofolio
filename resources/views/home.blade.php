@@ -1,5 +1,20 @@
 @extends('index')
 @section('content')
+    @if (session()->has('success'))
+        <div class="alert" style="width: 100%">
+            <div class="alert-success">
+                <p>
+                    <ion-icon name="happy-outline"></ion-icon>
+                </p>
+                <p>Success! </p>
+                <p>{{ session('success') }}</p>
+                <p id="btn-hide-alert">
+                    <ion-icon name="close-outline"></ion-icon>
+                </p>
+            </div>
+        </div>
+    @endif
+
     <div class="home">
         <div class="home__hero">
             <div class="home__hero--title">

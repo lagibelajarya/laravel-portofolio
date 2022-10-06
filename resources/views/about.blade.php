@@ -25,16 +25,28 @@
         <div class="about__right">
             <p class="about__right--title">What do I help?</p>
             <div class="about__right--desc">
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing <br>
-                    Possimus deserunt explicabo inventore fugit doloremque autem. <br>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing <br>
-                    Eum sit delectus esse eaque harum laboriosam.
-                </p>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing <br>
-                    Possimus deserunt explicabo inventore fugit doloremque autem
-                </p>
+                <ul>
+                    <li>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                    </li>
+                    <li>
+                        Possimus deserunt explicabo inventore fugit doloremque autem.
+                    </li>
+                    <li>
+                        Lorem ipsum dolor sit amet consectetur, adipisicing
+                    </li>
+                    <li>
+                        Eum sit delectus esse eaque harum laboriosam.
+                    </li>
+                    <li>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                    </li>
+                    <li>
+                        Possimus deserunt explicabo inventore fugit doloremque autem
+                    </li>
+
+                </ul>
+
             </div>
             <div class="about__right--rating">
                 <div class="about__right--rating__box">

@@ -47,7 +47,7 @@
             </div>
         @endif
         <div class="contact-wrapper">
-            <form action={{ route('contact/submit') }} method="POST" class="contact__form">
+            <form enctype="multipart/form-data" action={{ route('contact/submit') }} method="POST" class="contact__form">
                 {{ csrf_field() }}
                 <div class="contact__form--title">
                     <div class="contact__form--title--box">
@@ -93,6 +93,21 @@
                         </div>
                     @enderror
                 </div>
+                <div class="contact__form--input  d-flex flex-a-center flex-row">
+                    <label class="@error('image')  unvalidated-input @enderror" for="inputImage">Upload image <ion-icon
+                            name="cloud-upload-outline"></ion-icon></label>
+                    <div class="name-file ">
+                    </div>
+                    <input id="inputImage" type="file" name="image">
+                    @error('image')
+                        <div class="unvalidated">
+                            {{ $message }}
+                            <div class="unvalidated-popup">
+                                <ion-icon name="information-circle-outline"></ion-icon>
+                            </div>
+                        </div>
+                    @enderror
+                </div>
                 <div class="contact__form--submit">
                     <button type="submit" name="submit">Kirim</button>
                 </div>
@@ -116,7 +131,7 @@
         </div>
 
         <section id="contact-table">
-            <div class="contact__table">
+            <div class="contact__table ">
                 <div class="contact__table-box">
                     <div class="contact__table-box--title">
                         <p>List feedback</p>
@@ -129,6 +144,7 @@
                             <div class="contact__table-wrapper-header--item">Name</div>
                             <div class="contact__table-wrapper-header--item">Email</div>
                             <div class="contact__table-wrapper-header--item">Message</div>
+                            <div class="contact__table-wrapper-header--item">Image</div>
                             <div class="contact__table-wrapper-header--item">Action</div>
                         </div>
                         <div class="contact__table-wrapper-container-body">
@@ -137,28 +153,35 @@
                                     <div class="contact__table-wrapper-body--item">{{ $c->name }}</div>
                                     <div class="contact__table-wrapper-body--item">{{ $c->email }}</div>
                                     <div class="contact__table-wrapper-body--item">{{ $c->message }}</div>
-                                    <div class="contact__table-wrapper-body--action">
-                                        <a href='contact/delete/{{ $c->id }}'
-                                            class="contact__table-wrapper-body--action-trash">
-                                            <ion-icon name="trash"></ion-icon> Hapus
-                                        </a>
-                                        <a class="contact__table-wrapper-body--action-edit btn-show-edit"
-                                            onClick="editValueFunction({{ $c->id }})">
-                                            <ion-icon name="create"></ion-icon> Edit
-
-                                            {{-- isi value untuk edit --}}
-                                            <input type="hidden" class="idValue{{ $c->id }}"
-                                                value="{{ $c->id }}">
-                                            <input type="hidden" class="nameValue{{ $c->id }}"
-                                                value="{{ $c->name }}">
-                                            <input type="hidden" class="emailValue{{ $c->id }}"
-                                                value="{{ $c->email }}">
-                                            <input type="hidden" class="messageValue{{ $c->id }}"
-                                                value="{{ $c->message }}">
-                                        </a>
+                                    <div class="contact__table-wrapper-body--item">
+                                        <ion-icon name="images-outline" class="btn-show-img"
+                                            onclick="imgValue({{ $c->id }})"></ion-icon>
                                     </div>
-
+                                    <div class="contact__table-wrapper-body--action">
+                                        <div class="action-container">
+                                            <ion-icon class="action-btn" name="ellipsis-vertical-outline"></ion-icon>
+                                            <div class="action-box">
+                                                <a href='contact/delete/{{ $c->id }}'
+                                                    class="contact__table-wrapper-body--action-trash">
+                                                    <ion-icon name="trash"></ion-icon> Hapus
+                                                </a>
+                                                <a class="contact__table-wrapper-body--action-edit btn-show-edit"
+                                                    onClick="editValueFunction({{ $c->id }})">
+                                                    <ion-icon name="create"></ion-icon> Edit
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
+                                {{-- isi value untuk edit --}}
+                                <input type="hidden" class="idValue{{ $c->id }}" value="{{ $c->id }}">
+                                <input type="hidden" class="nameValue{{ $c->id }}" value="{{ $c->name }}">
+                                <input type="hidden" class="emailValue{{ $c->id }}"
+                                    value="{{ $c->email }}">
+                                <input type="hidden" class="messageValue{{ $c->id }}"
+                                    value="{{ $c->message }}">
+                                <input type="hidden" class="imageValue{{ $c->id }}"
+                                    value='{{ $c->image }}'>
                             @endforeach
                         </div>
                     </div>
@@ -175,7 +198,8 @@
                         </p>
                     </div>
                     <div class="contact-edit__box--wrapper">
-                        <form action={{ route('contact/edit') }} class="contact-edit__box--wrapper__form" method="POST">
+                        <form enctype="multipart/form-data" action={{ route('contact/edit') }}
+                            class="contact-edit__box--wrapper__form" method="POST">
                             {{ csrf_field() }}
 
                             <div class="contact-edit__box--wrapper__form--input ">
@@ -184,6 +208,14 @@
                             </div>
                             <div class="contact-edit__box--wrapper__form--input ">
                                 <input type="text" name="editEmail" class="editEmail">
+                            </div>
+                            <div class="contact-edit__box--wrapper__form--input d-flex gap-1 flex-a-center ">
+                                <label class=" d-flex flex-a-center" for="inputImage">Upload image
+                                    <ion-icon name="cloud-upload-outline"></ion-icon>
+                                </label>
+                                <div class="name-file ">
+                                </div>
+                                <input id="inputImage" type="file" required class="d-none" name="editImage">
                             </div>
                             <div class="contact-edit__box--wrapper__form--input ">
                                 <textarea type="text" name="editMessage" class="editMessage"></textarea>
@@ -200,6 +232,20 @@
             </div>
         </section>
 
+        <div class="contact-img">
+            <div class="contact-img-wrapper">
+                <div class="contact-img-wrapper-header">
+                    <p>Uploaded Image</p>
+                    <p>
+                        <ion-icon class="btn-close-img" name="close-circle-outline"></ion-icon>
+                    </p>
+                </div>
+                <div class="contact-img-wrapper-content">
+                    <div class="contact-img-wrapper-content-img"></div>
+                </div>
+            </div>
+        </div>
+
 
     </div>
     @include('layout/footer')
@@ -211,6 +257,13 @@
             $('.editName').val($('.nameValue' + $id).val())
             $('.editEmail').val($('.emailValue' + $id).val())
             $('.editMessage').val($('.messageValue' + $id).val())
+            $('.editImage').val($('.imageValue' + $id).val())
+            $('.name-file').html()
+        }
+
+        function imgValue(id) {
+            let folder = `./upload_img/`
+            $('.contact-img-wrapper-content-img').css('background', `url(${folder}${$(`.imageValue${id}`).val()})`)
         }
 
         $('.contact__form--input input , .contact__form--input textarea').on('keyup', function() {
@@ -220,35 +273,6 @@
                 $(this).addClass('unvalidated-input')
             }
         })
-
-        var map = L.map('map', {
-            zoomControl: false
-        }).setView([-7.752371, 112.696571], 13);
-
-        var tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            minZoom: 10,
-            maxZoom: 17,
-            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-        }).addTo(map);
-
-        var marker = L.marker([-7.752371, 112.696571]).addTo(map)
-            .bindPopup('<b>Hello Guys!</b><br />Ini Adalah Rumah Saya.').openPopup();
-
-        var circle = L.circle([-7.752404, 112.696550], {
-            color: 'red',
-            fillColor: '#f03',
-            fillOpacity: 0.5,
-            radius: 500
-        }).addTo(map).bindPopup('Area Rumah Saya.');
-
-        function onMapClick(e) {
-            popup
-                .setLatLng(e.latlng)
-                .setContent('You clicked the map at ' + e.latlng.toString())
-                .openOn(map);
-        }
-
-        map.on('click', onMapClick);
 
         // --------------------------------------------
         $('#btn-show-feedback').on('click', function() {
@@ -265,21 +289,35 @@
             })
         })
 
-        $('#btn-hide-alert').on('click', function() {
-            $('.alert').addClass('hide')
-        })
-        setTimeout(() => {
-            $('.alert').addClass('hide')
-        }, 4000);
+
+
+        function contactModal(name) {
+            $(`.btn-show-${name}`).on('click', function() {
+                $(`.contact-${name}`).addClass('show')
+
+            })
+            $(`.btn-close-${name}`).on('click', function() {
+                $(`.contact-${name}`).removeClass('show')
+                $('.name-file').html('')
+            })
+
+        }
+        contactModal('edit');
+        contactModal('img');
 
 
 
-        $('.btn-show-edit').on('click', function() {
-            $('.contact-edit').addClass('show')
-        })
+        // $('.contact-edit').children('#inputImage').on('change', function(e) {
+        //     let file = e.target.files[0].name;
+        //     $('.name-file').html(`<ion-icon name="document-outline"></ion-icon><p>${file}</p>`)
+        // })
 
-        $('.btn-close-edit').on('click', function() {
-            $('.contact-edit').removeClass('show')
-        })
+
+        $(document).on('click', '.action-btn', function() {
+            if (!$(this).siblings('.action-box').hasClass('show')) {
+                $('.action-box').removeClass('show');
+            }
+            $(this).siblings('.action-box').toggleClass('show');
+        });
     </script>
 @endsection

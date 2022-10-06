@@ -1,0 +1,42 @@
+.d {
+    &-flex {
+        display: flex !important;
+    }
+    &-none {
+        display: none;
+    }
+}
+
+.flex {
+    &-row {
+        flex-direction: row !important;
+    }
+    &-column {
+        flex-direction: column !important;
+    }
+    &-a-center {
+        align-items: center !important;
+    }
+    &-j-center {
+        justify-content: center !important;
+    }
+}
+
+.gap {
+    &-1 {
+        gap: 1rem;
+    }
+    &-2 {
+        gap: 2rem;
+    }
+    &-5 {
+        gap: 5rem;
+    }
+    &-10 {
+        gap: 10rem;
+    }
+}
+
+.bg-brown {
+    background-color: #2c2c2c;
+}

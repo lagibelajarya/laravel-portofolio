@@ -18,7 +18,12 @@ class contactController extends Controller
 
     public function store(contactRequest $request)
     {
-        contactModel::create($request->all());
+        $contact = contactModel::create($request->all());
+        if ($request->hasFile('image')) {
+            $request->file('image')->move(public_path('upload_img/'), $request->file('image')->getClientOriginalName());
+            $contact->image = $request->file('image')->getClientOriginalName();
+            $contact->save();
+        }
         $request->session()->flash('success', 'Pesan berhasil di kirimkan');
         return redirect('/contact');
     }
@@ -36,6 +41,11 @@ class contactController extends Controller
         $data->name = $request->editName;
         $data->email = $request->editEmail;
         $data->message = $request->editMessage;
+        $data->image = $request->editImage;
+        if ($request->hasFile('editImage')) {
+            $path = $request->file('editImage')->move(public_path('/upload_img'), $request->file('editImage')->getClientOriginalName());
+            $data->image = $request->file('editImage')->getClientOriginalName();
+        }
         $data->save();
         session()->flash('edited', 'Pesan berhasil di edit');
         return redirect('/contact');
